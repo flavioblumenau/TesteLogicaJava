@@ -8,10 +8,10 @@ public class Network {
 	/* a ideia adotada é adicionar um vetor bidimensional 
 	 a dimensão 0 significa a conexao
 	 a dimensão 1 significa os elementos concetados
-	 exemplo  conectando os elementos 1 e 6
-	 * arr_connexoes[0][0] = 1;
-	 * arr_connexoes[0][1] = 6;
-	 * na conexao 0 tem dois elementos 1 e 6
+	 Exemplo  conectando os elementos 1 e 6
+	  arr_connexoes[0][0] = 1;
+	  arr_connexoes[0][1] = 6;
+	  na conexao 0 tem dois elementos 1 e 6
 	*/
 	
 	private int[][] arr_connexoes = { {}, {} };
@@ -66,7 +66,7 @@ public class Network {
 		if (! this.numeroExiste(b)) {
 			throw new Exception("Numero " + b + " não encontrado.");
 		}
-		if (this.conexaoExiste(a, b)) {
+		if (this.query(a, b)) {
 			throw new Exception("A conexão entre "+ a + " e " + b + " já existe.");
 		}
 		
@@ -79,8 +79,8 @@ public class Network {
 	 * 	It should return true if the elements are connected,
 	 * 	directly or indirectly, and false if the elements are not connected. 
 	 * */
-	public boolean query() {
-		return false;
+	public boolean query(int a, int b) {
+		return this.conexaoExiste(a, b);
 	}
 
 }
