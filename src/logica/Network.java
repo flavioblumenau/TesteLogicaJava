@@ -4,6 +4,15 @@ package logica;
 // Data: 2024
 
 public class Network {
+
+	/* a ideia adotada é adicionar um vetor bidimensional 
+	 a dimensão 0 significa a conexao
+	 a dimensão 1 significa os elementos concetados
+	 exemplo  conectando os elementos 1 e 6
+	 * arr_connexoes[0][0] = 1;
+	 * arr_connexoes[0][1] = 6;
+	 * na conexao 0 tem dois elementos 1 e 6
+	*/
 	
 	private int[][] arr_connexoes = { {}, {} };
 	private int[] arr_numeros = {};
@@ -12,7 +21,9 @@ public class Network {
 	private boolean conexaoExiste(int a, int b) {
 		// percorre as conexoes e testa se já existe 
 		for (int indice = 0; indice < this.arr_connexoes.length; indice++) {
-			if (a == b) {
+			if ((this.arr_connexoes[indice][0] == a || this.arr_connexoes[indice][0] == b)
+					&&
+				(this.arr_connexoes[indice][1] == a || this.arr_connexoes[indice][1] == b)) {
 				return true;
 			}
 		}
