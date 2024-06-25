@@ -3,6 +3,7 @@ package logica;
 import java.util.Arrays;
 
 // Autor: Flávio da Silva
+// E-mail: programadorflavio@hotmail.com
 // Data: 2024
 
 public class Network {
@@ -76,7 +77,7 @@ public class Network {
 		arr_connexoes[arr_connexoes.length - 1][0] = b;
 		
 		
-		return false;
+		return true;
 	}
 	
 	/*
