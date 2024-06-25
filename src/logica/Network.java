@@ -20,15 +20,15 @@ public class Network {
 	  Signifia que na conexao 0 tem dois elementos: 1 e 6
 	*/
 	
-	private int[][] arr_connexoes = { {}, {} };
+	private int[][] arr_connexoes = {};
 	
 	private int[] arr_numeros = {};	
 	
 	private boolean conexaoExiste(int a, int b) {
 		// percorre as conexoes e testa se já existe 
 		for (int indice = 0; indice < this.arr_connexoes.length; indice++) {
-			if ((this.arr_connexoes[indice][0] == a || this.arr_connexoes[indice][0] == b)
-					&&
+			if ((this.arr_connexoes[indice].length==2) && 
+				(this.arr_connexoes[indice][0] == a || this.arr_connexoes[indice][0] == b) &&
 				(this.arr_connexoes[indice][1] == a || this.arr_connexoes[indice][1] == b)) {
 				return true;
 			}
@@ -39,8 +39,8 @@ public class Network {
 	
 	private boolean numeroExiste(int a) {
  
-		for (int b : arr_numeros) {
-			if (a == b) {
+		for (int b : arr_numeros) {			
+			if (a == b) {				
 				return true;
 			}
 		}
@@ -74,7 +74,8 @@ public class Network {
 		arr_connexoes = Arrays.copyOf(arr_connexoes, arr_connexoes.length + 1);
 		arr_connexoes[arr_connexoes.length - 1] = new int[2];
 		arr_connexoes[arr_connexoes.length - 1][0] = a;
-		arr_connexoes[arr_connexoes.length - 1][0] = b;
+		arr_connexoes[arr_connexoes.length - 1][1] = b;
+			
 		
 		
 		return true;
@@ -87,7 +88,7 @@ public class Network {
 	 * 	directly or indirectly, and false if the elements are not connected. 
 	 * */
 	public boolean query(int a, int b) throws Exception {
-		if (! this.numeroExiste(a)) {
+		if (! this.numeroExiste(a)) { 
 			throw new Exception("Numero " + a + " não encontrado.");
 		}
 		if (! this.numeroExiste(b)) {
