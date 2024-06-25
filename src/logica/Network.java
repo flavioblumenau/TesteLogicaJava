@@ -6,11 +6,22 @@ package logica;
 public class Network {
 	
 	private int[][] arr_connexoes = { {}, {} };
-	private int[] arr_numeros = {};	
+	private int[] arr_numeros = {};
+	
+	
+	private boolean conexaoExiste(int a, int b) {
+		// percorre as conexoes e testa se já existe 
+		for (int indice = 0; indice < this.arr_connexoes.length; indice++) {
+			if (a == b) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
 	
 	private boolean numeroExiste(int a) {
-
-		// using simple iteration over the array elements
+ 
 		for (int b : arr_numeros) {
 			if (a == b) {
 				return true;
@@ -43,6 +54,9 @@ public class Network {
 		}
 		if (! this.numeroExiste(b)) {
 			throw new Exception("Numero " + b + " não encontrado.");
+		}
+		if (this.conexaoExiste(a, b)) {
+			throw new Exception("A conexão entre "+ a + " e " + b + " já existe.");
 		}
 		
 		return false;
