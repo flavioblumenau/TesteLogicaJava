@@ -7,6 +7,18 @@ public class Network {
 	
 	private int[][] arr_connexoes = { {}, {} };
 	private int[] arr_numeros = {};	
+	
+	private boolean numeroExiste(int a) {
+
+		// using simple iteration over the array elements
+		for (int b : arr_numeros) {
+			if (a == b) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
 
 	// Construtor da Classe
 	public Network(int total_numeros) {
@@ -25,7 +37,13 @@ public class Network {
 	/* Will take two integers indicating the elements to connect. This method should throw
 	 * exceptions as appropriate 
 	 * */
-	public boolean connect(int a, int b) {
+	public boolean connect(int a, int b) throws Exception {
+		if (! this.numeroExiste(a)) {
+			throw new Exception("Numero " + a + " não encontrado.");
+		}
+		if (! this.numeroExiste(b)) {
+			throw new Exception("Numero " + b + " não encontrado.");
+		}
 		
 		return false;
 	}
