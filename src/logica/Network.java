@@ -17,12 +17,16 @@ public class Network {
 			throw new ArrayIndexOutOfBoundsException("Lista de elementos muito longa, o máximo permitido é 100.");
 		}
 		this.arr_numeros = new int[total_numeros];
+		for (int i = 1; i <= total_numeros; i++) {
+			this.arr_numeros[i-1] = i;
+		}
 	}
 
 	/* Will take two integers indicating the elements to connect. This method should throw
 	 * exceptions as appropriate 
 	 * */
 	public boolean connect(int a, int b) {
+		
 		return false;
 	}
 	
